@@ -1,0 +1,25 @@
+<resources>
+    <public name="app_name" type="string">presentation</public>
+    <string name="app_name">presentation</string>
+    <string name="register_name">Name</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log in</string>
+    <string name="last_name">Last name</string>
+    <string name="name">Name</string>
+    <string name="birth_date">Birth date</string>
+    <string name="next">next</string>
+    <string name="arn_t_you">Arn`t you</string>
+    <string name="signed_up">Signed up?</string>
+    <string name="pay_with_phone">ტელეფონის ნომრით</string>
+    <string name="pay_with_phone_desc">გადაურიცხე თანხა შენს კონტაქტებს</string>
+    <string name="birthDate">Birth date</string>
+    <string name="yyyy_mm_dd">YYYY/MM/DD</string>
+    <string name="date_picker">pick a date</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_number">Phone number</string>
+    <string name="personal_id">Personal id</string>
+    <string name="address">Address</string>
+    <string name="password">Password</string>
+    <string name="password_confirmation">Confirm password</string>
+    <string name="sign_up">Sign up</string>
+</resources>
