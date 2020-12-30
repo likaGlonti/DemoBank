@@ -1,7 +1,7 @@
 package com.example.domain.repository
 
-import com.example.domain.models.CurrencyEntity
-import com.example.domain.models.RegisterEntity
+import com.example.domain.models.entity.CurrencyEntity
+import com.example.domain.models.entity.RegisterEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 

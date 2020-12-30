@@ -1,6 +1,6 @@
-package com.example.domain.models
+package com.example.domain.models.entity
 
-data class CurrencyEntity (
+data class CurrencyEntity(
     val currency: String,
     val currencyName: String,
     val buyRate: Float,

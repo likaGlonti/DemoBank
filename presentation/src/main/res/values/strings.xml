@@ -22,4 +22,7 @@
     <string name="password">Password</string>
     <string name="password_confirmation">Confirm password</string>
     <string name="sign_up">Sign up</string>
+    <string name="ok">OK</string>
+    <string name="error">error</string>
+    <string name="back">Back</string>
 </resources>

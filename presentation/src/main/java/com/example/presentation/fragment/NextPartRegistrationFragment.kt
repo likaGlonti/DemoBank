@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.presentation.R
 import com.example.presentation.databinding.NextPartRegistrationBinding
+import com.example.presentation.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,7 +40,7 @@ class NextPartRegistrationFragment : Fragment(R.layout.next_part_registration) {
         })
 
         viewModel.onErrorLiveData.observe(viewLifecycleOwner, {
-            println(it.message.toString())
+        showErrorDialog(resources.getString(R.string.error), it.message.toString())
         })
 
         binding.apply {

@@ -4,8 +4,8 @@ import com.example.data.mappers.currency.CurrencyMapper
 import com.example.data.mappers.register.RegisterMapper
 import com.example.data.network.ApiService
 import com.example.domain.repository.Repository
-import com.example.domain.models.CurrencyEntity
-import com.example.domain.models.RegisterEntity
+import com.example.domain.models.entity.CurrencyEntity
+import com.example.domain.models.entity.RegisterEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject

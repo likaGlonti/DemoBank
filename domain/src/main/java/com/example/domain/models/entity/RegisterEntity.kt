@@ -1,13 +1,16 @@
-package com.example.domain.models
+package com.example.domain.models.entity
+
+import com.example.domain.models.Email
+import com.example.domain.models.Password
 
 data class RegisterEntity(
     val name: String,
     val lastName: String,
-    val email: String,
+    val email: Email,
     val birthDate: String,
     val phoneNumber: String,
     val personalId: String,
     val address: String,
-    val password: String,
+    val password: Password,
     val passwordConfirmation: String
 )

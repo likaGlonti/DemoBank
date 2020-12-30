@@ -3,6 +3,9 @@ package com.example.presentation.fragment
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.load.HttpException
+import com.example.domain.models.Email
+import com.example.domain.models.Password
 import com.example.domain.usecase.RegisterUseCase
 import com.example.presentation.model.RegisterPresentation
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,12 +39,12 @@ class RegistrationViewModel @ViewModelInject constructor(
         val register = RegisterPresentation(
             nameLiveData.value.orEmpty(),
             lastNameLiveData.value.orEmpty(),
-            emailLiveData.value.orEmpty(),
+            Email( emailLiveData.value.orEmpty()),
             birthDateLiveData.value.orEmpty(),
             phoneNumberLiveData.value.orEmpty(),
             personalIdLiveData.value.orEmpty(),
             addressLiveData.value.orEmpty(),
-            passwordLiveData.value.orEmpty(),
+            Password( passwordLiveData.value.orEmpty()),
             passwordConfirmationLiveData.value.orEmpty()
         )
 
