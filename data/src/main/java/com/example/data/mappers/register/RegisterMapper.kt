@@ -13,7 +13,7 @@ open class RegisterMapper @Inject constructor(): Mapper<RegisterEntity, Register
             model.email.toString(),
             model.birthDate,
             model.phoneNumber,
-            model.personalId,
+            model.personalId.toString(),
             model.address,
             model.password.toString(),
             model.passwordConfirmation

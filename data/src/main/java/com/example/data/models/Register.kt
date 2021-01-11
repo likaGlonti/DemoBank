@@ -1,16 +1,18 @@
 package com.example.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-class Register(
+@Serializable
+data class Register(
     val name: String,
-    @SerializedName("lastname")
+    @SerialName("lastname")
     val lastName: String,
     val email: String,
-    @SerializedName("birth_date") val birthDate: String,
-    @SerializedName("phone_number") val phoneNumber: String,
-    @SerializedName("personal_number") val personalId: String,
+    @SerialName("birth_date") val birthDate: String,
+    @SerialName("phone_number") val phoneNumber: String,
+    @SerialName("personal_number") val personalId: String,
     val address: String,
     val password: String,
-    @SerializedName("password_confirmation") val passwordConfirmation: String
+    @SerialName("password_confirmation") val passwordConfirmation: String,
 )

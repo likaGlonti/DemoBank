@@ -2,6 +2,7 @@ package com.example.presentation.model
 
 import com.example.domain.models.Email
 import com.example.domain.models.Password
+import com.example.domain.models.PersonalId
 import com.example.domain.models.entity.RegisterEntity
 
 class RegisterPresentation(
@@ -10,7 +11,7 @@ class RegisterPresentation(
     private val email: Email,
     private val birthDate: String,
     private val phoneNumber: String,
-    private val personalNumber: String,
+    private val personalNumber: PersonalId,
     private val address: String,
     private val password: Password,
     private val passwordConfirmation: String

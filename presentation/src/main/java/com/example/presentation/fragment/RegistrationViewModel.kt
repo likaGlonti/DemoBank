@@ -1,11 +1,13 @@
 package com.example.presentation.fragment
 
+import android.app.Person
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.load.HttpException
 import com.example.domain.models.Email
 import com.example.domain.models.Password
+import com.example.domain.models.PersonalId
 import com.example.domain.usecase.RegisterUseCase
 import com.example.presentation.model.RegisterPresentation
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -42,10 +44,10 @@ class RegistrationViewModel @ViewModelInject constructor(
             Email( emailLiveData.value.orEmpty()),
             birthDateLiveData.value.orEmpty(),
             phoneNumberLiveData.value.orEmpty(),
-            personalIdLiveData.value.orEmpty(),
+            PersonalId(personalIdLiveData.value.orEmpty()),
             addressLiveData.value.orEmpty(),
             Password( passwordLiveData.value.orEmpty()),
-            passwordConfirmationLiveData.value.orEmpty()
+            passwordConfirmationLiveData.value.orEmpty(),
         )
 
         registerUseCase.registerUser(register.createUser()).subscribeOn(Schedulers.io())
