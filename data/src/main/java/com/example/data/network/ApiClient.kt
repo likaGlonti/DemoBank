@@ -11,13 +11,16 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 @OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
 fun getRetrofitInstance(): Retrofit = Retrofit.Builder()
-    .baseUrl("http://online.cloud.com.ge/api/")
+    .baseUrl("http://online.cloud.com.ge/api/v1/")
     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-    .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+    .addConverterFactory(Json {
+        isLenient = true
+    }.asConverterFactory("application/json".toMediaType()))
     .client(getClient())
     .build()
 
 fun getClient() = OkHttpClient.Builder().addInterceptor(
     HttpLoggingInterceptor().setLevel(
-        HttpLoggingInterceptor.Level.BODY))
-    .build()
+        HttpLoggingInterceptor.Level.BODY
+    )
+).build()

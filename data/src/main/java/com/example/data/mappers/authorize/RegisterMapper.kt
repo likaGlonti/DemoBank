@@ -1,4 +1,4 @@
-package com.example.data.mappers.register
+package com.example.data.mappers.authorize
 
 import com.example.data.mappers.Mapper
 import com.example.data.models.Register

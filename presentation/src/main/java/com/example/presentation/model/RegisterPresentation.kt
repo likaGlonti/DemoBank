@@ -14,7 +14,7 @@ class RegisterPresentation(
     private val personalNumber: PersonalId,
     private val address: String,
     private val password: Password,
-    private val passwordConfirmation: String
+    private val passwordConfirmation: String,
 ) {
     fun createUser(): RegisterEntity {
         return RegisterEntity(
@@ -26,7 +26,7 @@ class RegisterPresentation(
             personalNumber,
             address,
             password,
-            passwordConfirmation
+            passwordConfirmation,
         )
     }
 }

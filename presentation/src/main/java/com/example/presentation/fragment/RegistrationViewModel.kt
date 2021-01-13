@@ -1,10 +1,8 @@
 package com.example.presentation.fragment
 
-import android.app.Person
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bumptech.glide.load.HttpException
 import com.example.domain.models.Email
 import com.example.domain.models.Password
 import com.example.domain.models.PersonalId
@@ -16,7 +14,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class RegistrationViewModel @ViewModelInject constructor(
-    private val registerUseCase: RegisterUseCase
+    private val registerUseCase: RegisterUseCase,
 ) : ViewModel() {
 
     private val nameLiveData = MutableLiveData<String>()
@@ -41,22 +39,30 @@ class RegistrationViewModel @ViewModelInject constructor(
         val register = RegisterPresentation(
             nameLiveData.value.orEmpty(),
             lastNameLiveData.value.orEmpty(),
-            Email( emailLiveData.value.orEmpty()),
+            Email(emailLiveData.value.orEmpty()),
             birthDateLiveData.value.orEmpty(),
             phoneNumberLiveData.value.orEmpty(),
             PersonalId(personalIdLiveData.value.orEmpty()),
             addressLiveData.value.orEmpty(),
-            Password( passwordLiveData.value.orEmpty()),
+            Password(passwordLiveData.value.orEmpty()),
             passwordConfirmationLiveData.value.orEmpty(),
         )
 
-        registerUseCase.registerUser(register.createUser()).subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+//        registerUseCase.registerUser(register.createUser()).subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+//                onCompleteLiveData.value = true
+//            }, { onError ->
+//                onErrorLiveData.value = onError
+//            }).disposedBy()
+
+        registerUseCase.registerUserSingle(register.createUser())
+            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ onSuccess ->
+                println(onSuccess.token)
                 onCompleteLiveData.value = true
             }, { onError ->
                 onErrorLiveData.value = onError
             }).disposedBy()
-
     }
 
     private fun Disposable.disposedBy() {

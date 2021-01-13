@@ -13,5 +13,5 @@ data class RegisterEntity(
     val personalId: PersonalId,
     val address: String,
     val password: Password,
-    val passwordConfirmation: String
+    val passwordConfirmation: String,
 )

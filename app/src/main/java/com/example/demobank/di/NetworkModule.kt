@@ -5,7 +5,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.example.data.mappers.currency.CurrencyMapper
-import com.example.data.mappers.register.RegisterMapper
+import com.example.data.mappers.authorize.RegisterMapper
+import com.example.data.mappers.response.LogInMapper
+import com.example.data.mappers.response.ResponseMapper
 import com.example.data.network.ApiService
 import com.example.data.network.getRetrofitInstance
 import com.example.data.repo.RepositoryImpl
@@ -35,6 +37,19 @@ object NetworkModule {
     ): RequestManager = Glide.with(appContext).setDefaultRequestOptions(requestOptions)
 
     @Provides
-    fun providesRepository(apiService: ApiService, registerMapper: RegisterMapper, currencyMapper: CurrencyMapper): Repository = RepositoryImpl(apiService, registerMapper, currencyMapper)
+    fun providesRepository(
+        apiService: ApiService,
+        registerMapper: RegisterMapper,
+        currencyMapper: CurrencyMapper,
+        responseMapper: ResponseMapper,
+        logInMapper: LogInMapper,
+    ): Repository =
+        RepositoryImpl(
+            apiService,
+            registerMapper,
+            currencyMapper,
+            responseMapper,
+            logInMapper,
+        )
 
 }

@@ -36,10 +36,16 @@
         <item name="cardCornerRadius">30dp</item>
     </style>
 
-        <style name="Widget.MaterialComponents.Button.TextButton.Error" parent="Widget.MaterialComponents.Button.OutlinedButton">
-            <item name="android:textColor">@color/errorRed</item>
-            <item name="android:textSize">18sp</item>
-            <item name="strokeColor">@color/lightGray</item>
-            <item name="strokeWidth">5dp</item>
-        </style>
+    <style name="Widget.MaterialComponents.Button.TextButton.Error" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/errorRed</item>
+        <item name="android:textSize">18sp</item>
+        <item name="strokeColor">@color/lightGray</item>
+        <item name="strokeWidth">5dp</item>
+    </style>
+    
+    <style name="ShapeAppearanceOverlay.Circle.ImageView" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

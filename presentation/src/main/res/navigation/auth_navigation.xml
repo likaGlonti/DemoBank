@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/auth_navigation"
     app:startDestination="@id/logInFragment">
 
@@ -11,7 +12,14 @@
         <action
             android:id="@+id/action_logInFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_currencyFragment"
+            app:destination="@id/currencyFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/auth_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
+
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.presentation.fragment.RegistrationFragment"
@@ -20,6 +28,7 @@
             android:id="@+id/action_registrationFragment_to_nextPartRegistrationFragment"
             app:destination="@id/nextPartRegistrationFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/nextPartRegistrationFragment"
         android:name="com.example.presentation.fragment.NextPartRegistrationFragment"
@@ -28,7 +37,12 @@
             android:id="@+id/action_nextPartRegistrationFragment_to_logInFragment"
             app:destination="@id/logInFragment"
             app:popUpTo="@id/logInFragment"
-            app:popUpToInclusive="true"
-            />
+            app:popUpToInclusive="true" />
     </fragment>
+
+    <fragment
+        android:id="@+id/currencyFragment"
+        android:name="com.example.presentation.fragment.CurrencyFragment"
+        android:label="currency_fragment"
+        tools:layout="@layout/currency_fragment" />
 </navigation>
