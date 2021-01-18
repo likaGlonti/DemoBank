@@ -14,16 +14,17 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("rates/{path}")
-    fun getCurrencyTest(@Path("path") currency:String?) : Observable<List<Currency>>
 
-    @POST("register")
+    @GET("rates/CurrencyRates")
+    fun getCurrencyTest(): Observable<List<Currency>>
+
+    @POST("v1/register")
     fun registerUser(@Body user: Register): Completable
 
-    @POST("register")
+    @POST("v1/register")
     fun registerUserSingle(@Body user: Register): Single<TokenResponse>
 
-    @POST("login")
-    fun logIn(@Body user:LogIn):Completable
+    @POST("v1/login")
+    fun logIn(@Body user: LogIn): Completable
 
 }

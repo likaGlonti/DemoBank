@@ -27,7 +27,6 @@ class RegistrationViewModel @ViewModelInject constructor(
     private val passwordLiveData = MutableLiveData<String>()
     private val passwordConfirmationLiveData = MutableLiveData<String>()
 
-
     val onErrorLiveData = MutableLiveData<Throwable>()
 
     val onCompleteLiveData = MutableLiveData<Boolean>()
@@ -47,13 +46,6 @@ class RegistrationViewModel @ViewModelInject constructor(
             Password(passwordLiveData.value.orEmpty()),
             passwordConfirmationLiveData.value.orEmpty(),
         )
-
-//        registerUseCase.registerUser(register.createUser()).subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread()).subscribe({
-//                onCompleteLiveData.value = true
-//            }, { onError ->
-//                onErrorLiveData.value = onError
-//            }).disposedBy()
 
         registerUseCase.registerUserSingle(register.createUser())
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())

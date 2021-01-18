@@ -5,7 +5,7 @@ import com.example.data.models.Currency
 import com.example.domain.models.entity.CurrencyEntity
 import javax.inject.Inject
 
-open class CurrencyMapper @Inject constructor(): Mapper<Currency, CurrencyEntity> {
+open class CurrencyMapper @Inject constructor() : Mapper<Currency, CurrencyEntity> {
     override fun mapFrom(model: Currency): CurrencyEntity {
         return CurrencyEntity(
             model.currency,

@@ -11,10 +11,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 @OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
 fun getRetrofitInstance(): Retrofit = Retrofit.Builder()
-    .baseUrl("http://online.cloud.com.ge/api/v1/")
+    .baseUrl("http://online.cloud.com.ge/api/")
     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     .addConverterFactory(Json {
         isLenient = true
+        coerceInputValues = true
+        allowSpecialFloatingPointValues = true
     }.asConverterFactory("application/json".toMediaType()))
     .client(getClient())
     .build()

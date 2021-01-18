@@ -13,8 +13,6 @@ import io.reactivex.schedulers.Schedulers
 
 class LogInViewModel @ViewModelInject constructor(private val logInUseCase: LogInUseCase) :
     ViewModel() {
-    private val emailLiveData = MutableLiveData<String>()
-    private val passwordLiveData = MutableLiveData<String>()
 
     val onErrorLiveData = MutableLiveData<Throwable>()
 
@@ -33,15 +31,7 @@ class LogInViewModel @ViewModelInject constructor(private val logInUseCase: LogI
             }, { onError ->
                 onErrorLiveData.value = onError
             }).let {
-            bag.add(it)
-        }
-    }
-
-    fun getEmail(email: String) {
-        emailLiveData.value = email
-    }
-
-    fun getPassword(password: String) {
-        passwordLiveData.value = password
+                bag.add(it)
+            }
     }
 }

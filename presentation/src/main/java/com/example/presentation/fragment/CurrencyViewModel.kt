@@ -4,14 +4,14 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.domain.usecase.GetCurrencyUseCase
+import com.example.presentation.utils.toCurrencyPresentation
 import com.example.presentation.model.CurrencyBuyingRatePresentation
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class CurrencyViewModel @ViewModelInject constructor(
-    private val currencyUseCase: GetCurrencyUseCase,
-) : ViewModel() {
+class CurrencyViewModel @ViewModelInject constructor(private val currencyUseCase: GetCurrencyUseCase) :
+    ViewModel() {
 
     val onErrorLiveData = MutableLiveData<Throwable>()
 
@@ -24,16 +24,10 @@ class CurrencyViewModel @ViewModelInject constructor(
             it.any { it.currencyCountryFlag.isNotEmpty() }
 
         }.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread()).subscribe( {
-                it.forEach { currencyEntity ->
-                    currencyBuyingRateLiveData.value?.add(
-                        CurrencyBuyingRatePresentation(
-                            currencyEntity.buyRate.toString(),
-                            currencyEntity.currencyCountryFlag,
-                            currencyEntity.currencyName,
-                        )
-                    )
-                }
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({ currencies ->
+                val value = currencyBuyingRateLiveData.value ?: mutableListOf()
+                value.addAll(currencies.map { it.toCurrencyPresentation() })
+                currencyBuyingRateLiveData.value = value
             },
                 {
                     onErrorLiveData.value = it

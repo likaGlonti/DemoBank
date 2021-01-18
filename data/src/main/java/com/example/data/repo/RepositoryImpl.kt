@@ -4,6 +4,7 @@ import com.example.data.mappers.currency.CurrencyMapper
 import com.example.data.mappers.authorize.RegisterMapper
 import com.example.data.mappers.response.LogInMapper
 import com.example.data.mappers.response.ResponseMapper
+import com.example.data.models.Currency
 import com.example.data.network.ApiService
 import com.example.domain.repository.Repository
 import com.example.domain.models.entity.CurrencyEntity
@@ -24,7 +25,7 @@ class RepositoryImpl @Inject constructor(
 ) :
     Repository {
     override fun getCurrency(): Observable<List<CurrencyEntity>> =
-        apiService.getCurrencyTest("currency-rates").map {
+        apiService.getCurrencyTest().map {
             it.map { currency ->
                 currencyMapper.mapFrom(currency)
             }

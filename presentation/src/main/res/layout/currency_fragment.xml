@@ -13,11 +13,40 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="50dp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp" />
+
+    <TextView
+        android:id="@+id/BuyRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/buy"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/currencyBuyRateRecyclerView"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/currencyBuyRateRecyclerView"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        app:layout_constraintTop_toTopOf="@id/topGuideline" />
+        android:background=""
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/BuyRate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,8 @@ import com.example.data.network.ApiService
 import com.example.data.network.getRetrofitInstance
 import com.example.data.repo.RepositoryImpl
 import com.example.domain.repository.Repository
+import com.example.presentation.adapter.CurrencyBuyingRateAdapter
+import com.example.presentation.utils.CurrencyDiffUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

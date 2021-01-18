@@ -11,18 +11,7 @@ import javax.inject.Inject
 
 class RegisterUseCase @Inject constructor(private val repository: Repository) {
 
-    private var error: Completable? = null
     private var errorS: Single<TokenResponseEntity>? = null
-
-    fun registerUser(registerEntityUser: RegisterEntity): Completable {
-        if (!registerEntityUser.email.isValid())
-            return Completable.error(EmailNotValidException())
-        else if (!registerEntityUser.password.isValid { error = Completable.error(it) })
-            return error!!
-        else if (!registerEntityUser.personalId.isValid())
-            return Completable.error(PersonalIdNotValidException())
-        return repository.registerUser(registerEntityUser)
-    }
 
     fun registerUserSingle(registerEntityUser: RegisterEntity): Single<TokenResponseEntity> {
         if (!registerEntityUser.email.isValid())

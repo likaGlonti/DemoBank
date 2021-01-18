@@ -39,7 +39,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/buyRate"
                 app:layout_constraintStart_toStartOf="@id/startGuideline"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Circle.ImageView" />
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cornered.ImageView" />
 
             <TextView
                 android:id="@+id/buyRate"

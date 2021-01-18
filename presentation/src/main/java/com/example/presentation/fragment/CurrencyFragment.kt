@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.presentation.R
 import com.example.presentation.adapter.CurrencyBuyingRateAdapter
@@ -35,6 +34,7 @@ class CurrencyFragment : Fragment(R.layout.currency_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         buyingRateAdapter = CurrencyBuyingRateAdapter()
 
         binding.apply {
@@ -51,5 +51,4 @@ class CurrencyFragment : Fragment(R.layout.currency_fragment) {
             showErrorDialog(resources.getString(R.string.error), it.message.toString())
         })
     }
-
 }

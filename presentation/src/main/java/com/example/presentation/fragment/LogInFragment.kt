@@ -37,7 +37,8 @@ class LogInFragment : Fragment(R.layout.log_in_fragment) {
         })
 
         viewModel.onCompleteLiveData.observe(viewLifecycleOwner, {
-            NavHostFragment.findNavController(this).navigate(R.id.action_logInFragment_to_currencyFragment)
+            NavHostFragment.findNavController(this)
+                .navigate(R.id.action_logInFragment_to_currencyFragment)
         })
 
         binding.apply {
@@ -48,7 +49,7 @@ class LogInFragment : Fragment(R.layout.log_in_fragment) {
             login.setOnClickListener {
                 viewModel.logIn(
                     binding.logInEmailEt.text.toString(),
-                    binding.passwordEt.text.toString()
+                    binding.passwordEt.text.toString(),
                 )
             }
         }

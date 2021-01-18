@@ -1,8 +1,8 @@
 package com.example.domain.models.entity
 
 data class CreatedUserEntity(
-    val name:String,
-    val lastName:String,
+    val name: String,
+    val lastName: String,
     val email: String,
     val birthDate: String,
     val phoneNumber: String,

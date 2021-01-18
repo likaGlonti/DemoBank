@@ -9,7 +9,7 @@ fun CurrencyItemLayoutBinding.bindWith(presentation:CurrencyBuyingRatePresentati
     buyRate.text = presentation.buyingRate
     currencyName.text = presentation.currencyName
     countryFlag.load(presentation.countryFlag){
-        crossfade(1000)
+        crossfade(500)
         placeholder(R.drawable.ic_monet_placeholder)
     }
 }

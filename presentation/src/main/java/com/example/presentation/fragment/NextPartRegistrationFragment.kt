@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class NextPartRegistrationFragment : Fragment(R.layout.next_part_registration) {
 
-    private val viewModel:RegistrationViewModel by activityViewModels()
+    private val viewModel: RegistrationViewModel by activityViewModels()
 
     private lateinit var binding: NextPartRegistrationBinding
 
@@ -28,19 +28,18 @@ class NextPartRegistrationFragment : Fragment(R.layout.next_part_registration) {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.onCompleteLiveData.observe(viewLifecycleOwner, {
-            if (it){
+            if (it) {
                 NavHostFragment.findNavController(this@NextPartRegistrationFragment)
                     .navigate(R.id.action_nextPartRegistrationFragment_to_logInFragment)
             }
         })
 
         viewModel.onErrorLiveData.observe(viewLifecycleOwner, {
-        showErrorDialog(resources.getString(R.string.error), it.message.toString())
+            showErrorDialog(resources.getString(R.string.error), it.message.toString())
         })
 
         binding.apply {

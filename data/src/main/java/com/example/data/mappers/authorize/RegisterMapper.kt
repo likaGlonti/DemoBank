@@ -5,7 +5,7 @@ import com.example.data.models.Register
 import com.example.domain.models.entity.RegisterEntity
 import javax.inject.Inject
 
-open class RegisterMapper @Inject constructor(): Mapper<RegisterEntity, Register> {
+open class RegisterMapper @Inject constructor() : Mapper<RegisterEntity, Register> {
     override fun mapFrom(model: RegisterEntity): Register {
         return Register(
             model.name,
