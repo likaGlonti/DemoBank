@@ -26,4 +26,5 @@
     <string name="error">error</string>
     <string name="back">Back</string>
     <string name="buy">ყიდვა</string>
+    <string name="demo_bank">Demo Bank</string>
 </resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--        Headlines-->
+    <style name="TextAppearance.DemoBank.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">32sp</item>
+        <item name="fontFamily">@font/nexa_bold</item>
+    </style>
+
+    <style name="TextAppearance.DemoBank.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/akolkhnb</item>
+    </style>
+
+    <!--    Subtitles-->
+
+    <style name="TextAppearance.DemoBank.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/akolkhn</item>
+    </style>
+
+    <style name="TextAppearance.DemoBank.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/akolkhn</item>
+    </style>
+
+
+    <!--    Caption-->
+    <style name="TextAppearance.DemoBank.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/nexa_light</item>
+    </style>
+
+
+    <!--    Button-->
+    <style name="TextAppearance.DemoBank.Button4" parent="TextAppearance.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.DemoBank.Button5" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/nexa_bold</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

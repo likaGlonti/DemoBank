@@ -3,15 +3,11 @@ package com.example.data.repo
 import com.example.data.mappers.currency.CurrencyMapper
 import com.example.data.mappers.authorize.RegisterMapper
 import com.example.data.mappers.response.LogInMapper
-import com.example.data.mappers.response.ResponseMapper
-import com.example.data.models.Currency
+import com.example.data.mappers.response.LoginResponseMapper
+import com.example.data.mappers.response.RegistrationResponseMapper
 import com.example.data.network.ApiService
+import com.example.domain.models.entity.*
 import com.example.domain.repository.Repository
-import com.example.domain.models.entity.CurrencyEntity
-import com.example.domain.models.entity.LogInEntity
-import com.example.domain.models.entity.RegisterEntity
-import com.example.domain.models.entity.TokenResponseEntity
-import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
@@ -20,8 +16,10 @@ class RepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val registerMapper: RegisterMapper,
     private val currencyMapper: CurrencyMapper,
-    private val responseMapper: ResponseMapper,
+    private val registrationResponseMapper: RegistrationResponseMapper,
     private val logInMapper: LogInMapper,
+    private val loginResponseMapper: LoginResponseMapper,
+
 ) :
     Repository {
     override fun getCurrency(): Observable<List<CurrencyEntity>> =
@@ -31,16 +29,12 @@ class RepositoryImpl @Inject constructor(
             }
         }
 
-    override fun registerUser(userRegister: RegisterEntity): Completable =
-        apiService.registerUser(registerMapper.mapFrom(userRegister))
-
-    override fun registerUserSingle(user: RegisterEntity): Single<TokenResponseEntity> =
+    override fun registerUserSingle(user: RegisterEntity): Single<TokenRegistrationResponseEntity> =
         apiService.registerUserSingle(registerMapper.mapFrom(user)).map {
-            responseMapper.mapFrom(it)
+            registrationResponseMapper.mapFrom(it)
         }
 
-    override fun logIn(user: LogInEntity): Completable {
-        return apiService.logIn(logInMapper.mapFrom(user))
-    }
+    override fun logIn(user: LogInEntity): Single<TokenResponseLoginEntity> =
+        apiService.logIn(logInMapper.mapFrom(user)).map { loginResponseMapper.mapFrom(it) }
 
 }

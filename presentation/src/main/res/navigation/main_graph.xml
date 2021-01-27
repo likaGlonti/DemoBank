@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/auth_navigation"
-    app:startDestination="@id/logInFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/logInFragment"
@@ -13,11 +13,8 @@
             android:id="@+id/action_logInFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
         <action
-            android:id="@+id/action_logInFragment_to_currencyFragment"
-            app:destination="@id/currencyFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/auth_navigation"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_logInFragment_to_currencyFragment2"
+            app:destination="@id/currencyFragment" />
     </fragment>
 
     <fragment
@@ -38,11 +35,26 @@
             app:destination="@id/logInFragment"
             app:popUpTo="@id/logInFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nextPartRegistrationFragment_to_currencyFragment2"
+            app:destination="@id/currencyFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.presentation.fragment.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/splash_fragment">
+        <action
+            android:id="@+id/action_splashFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_currencyFragment"
+            app:destination="@id/currencyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/currencyFragment"
         android:name="com.example.presentation.fragment.CurrencyFragment"
         android:label="currency_fragment"
         tools:layout="@layout/currency_fragment" />
+
 </navigation>

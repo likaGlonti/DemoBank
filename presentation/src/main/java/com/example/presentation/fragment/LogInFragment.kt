@@ -38,7 +38,7 @@ class LogInFragment : Fragment(R.layout.log_in_fragment) {
 
         viewModel.onCompleteLiveData.observe(viewLifecycleOwner, {
             NavHostFragment.findNavController(this)
-                .navigate(R.id.action_logInFragment_to_currencyFragment)
+                .navigate(R.id.action_logInFragment_to_currencyFragment2)
         })
 
         binding.apply {

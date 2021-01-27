@@ -23,11 +23,6 @@ class RegistrationFragment : Fragment(R.layout.registration_fragment) {
 
     private lateinit var binding: RegistrationFragmentBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("viewmodel", viewModel.toString())
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -3,6 +3,7 @@ package com.example.presentation.fragment
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.data.manager.SessionManager
 import com.example.domain.models.Email
 import com.example.domain.models.Password
 import com.example.domain.models.PersonalId
@@ -15,6 +16,7 @@ import io.reactivex.schedulers.Schedulers
 
 class RegistrationViewModel @ViewModelInject constructor(
     private val registerUseCase: RegisterUseCase,
+    private val sessionManager: SessionManager,
 ) : ViewModel() {
 
     private val nameLiveData = MutableLiveData<String>()
@@ -49,8 +51,8 @@ class RegistrationViewModel @ViewModelInject constructor(
 
         registerUseCase.registerUserSingle(register.createUser())
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ onSuccess ->
-                println(onSuccess.token)
+            .subscribe({ data ->
+                sessionManager.saveAuthToken(data.token)
                 onCompleteLiveData.value = true
             }, { onError ->
                 onErrorLiveData.value = onError

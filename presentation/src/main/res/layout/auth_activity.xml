@@ -5,5 +5,5 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     app:defaultNavHost="true"
-    app:navGraph="@navigation/auth_navigation"
+    app:navGraph="@navigation/main_graph"
     xmlns:app="http://schemas.android.com/apk/res-auto" />

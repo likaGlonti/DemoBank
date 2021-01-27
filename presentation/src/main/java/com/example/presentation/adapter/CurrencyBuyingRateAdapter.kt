@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.presentation.common.bindWith
 import com.example.presentation.databinding.CurrencyItemLayoutBinding
 import com.example.presentation.model.CurrencyBuyingRatePresentation
-import com.example.presentation.utils.CurrencyDiffUtil
-import javax.inject.Inject
+import com.example.presentation.utils.CurrencyBuyingRateDiffUtil
 
 class CurrencyBuyingRateAdapter :
     RecyclerView.Adapter<CurrencyBuyingRateAdapter.ViewHolder>() {
@@ -28,7 +27,7 @@ class CurrencyBuyingRateAdapter :
     override fun getItemCount(): Int = mutableBuyingRates.size
 
     fun addAllCurrencyBuyingRates(buyingRates: MutableList<CurrencyBuyingRatePresentation>) {
-        val result = DiffUtil.calculateDiff(CurrencyDiffUtil(mutableBuyingRates, buyingRates))
+        val result = DiffUtil.calculateDiff(CurrencyBuyingRateDiffUtil(mutableBuyingRates, buyingRates))
         mutableBuyingRates.clear()
         mutableBuyingRates.addAll(buyingRates)
         result.dispatchUpdatesTo(this)

@@ -3,6 +3,7 @@ package com.example.presentation.fragment
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.data.manager.SessionManager
 import com.example.domain.models.Email
 import com.example.domain.models.Password
 import com.example.domain.usecase.LogInUseCase
@@ -11,7 +12,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class LogInViewModel @ViewModelInject constructor(private val logInUseCase: LogInUseCase) :
+class LogInViewModel @ViewModelInject constructor(
+    private val logInUseCase: LogInUseCase,
+    private val sessionManager: SessionManager,
+) :
     ViewModel() {
 
     val onErrorLiveData = MutableLiveData<Throwable>()
@@ -26,7 +30,8 @@ class LogInViewModel @ViewModelInject constructor(private val logInUseCase: LogI
             Password(password),
         )
         logInUseCase.logIn(logIn.getLogIn()).subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({ tokenResponse ->
+                sessionManager.saveAuthToken(tokenResponse.token)
                 onCompleteLiveData.value = true
             }, { onError ->
                 onErrorLiveData.value = onError

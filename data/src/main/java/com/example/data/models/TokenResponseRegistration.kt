@@ -4,7 +4,7 @@ import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class TokenResponse(
+data class TokenResponseRegistration(
     @Contextual val user: CreatedUser,
     val token: String,
 )

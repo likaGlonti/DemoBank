@@ -1,30 +1,22 @@
 package com.example.data.network
 
-import com.example.data.models.Currency
-import com.example.data.models.LogIn
-import com.example.data.models.Register
-import com.example.data.models.TokenResponse
-import com.example.domain.models.entity.RegisterEntity
-import io.reactivex.Completable
+import com.example.data.models.*
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("rates/CurrencyRates")
+    @GET("v1/rates/currency-rates")
     fun getCurrencyTest(): Observable<List<Currency>>
 
     @POST("v1/register")
-    fun registerUser(@Body user: Register): Completable
-
-    @POST("v1/register")
-    fun registerUserSingle(@Body user: Register): Single<TokenResponse>
+    fun registerUserSingle(@Body user: Register): Single<TokenResponseRegistration>
 
     @POST("v1/login")
-    fun logIn(@Body user: LogIn): Completable
+    fun logIn(@Body user: LogIn): Single<TokenResponseLogIn>
 
 }

@@ -3,22 +3,21 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/royal_color</item>
+        <item name="colorPrimaryDark">@color/royal_color</item>
+        <item name="colorAccent">@color/royal_color</item>
     </style>
 
     <style name="Widget.MaterialComponents.Button.Auth" parent="Widget.MaterialComponents.Button">
         <item name="cornerRadius">30dp</item>
         <item name="backgroundTint">@color/colorPrimary</item>
-        <item name="android:textSize">19sp</item>
         <item name="android:paddingStart">32dp</item>
         <item name="android:paddingEnd">32dp</item>
         <item name="android:paddingTop">13dp</item>
         <item name="icon">@drawable/ic_log_in</item>
         <item name="iconGravity">end</item>
         <item name="android:paddingBottom">13dp</item>
-        <item name="textAllCaps">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.DemoBank.Button4</item>
     </style>
 
     <style name="Widget.MaterialComponents.TextInputLayout.Auth" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -51,6 +50,11 @@
     <style name="ShapeAppearanceOverlay.Cornered.ImageView" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="TextView.DemoBank.SplashScreen.Headline" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.DemoBank.Headline4</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
 </resources>

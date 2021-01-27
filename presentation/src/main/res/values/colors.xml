@@ -7,6 +7,8 @@
     <color name="lightYellow">#f4dc94</color>
     <color name="grayTransparent">#1A848490</color>
     <color name="lightGray">#5C5A5A</color>
-    <color name="yellowDark">#292009</color>
     <color name="errorRed">#B60505</color>
+    <color name="veryDarkBlue">#00003f</color>
+    <color name="black">#000000</color>
+    <color name="royalGradient">@color/royal_color</color>
 </resources>

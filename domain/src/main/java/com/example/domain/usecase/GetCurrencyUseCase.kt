@@ -9,4 +9,5 @@ class GetCurrencyUseCase @Inject constructor(private val repository: Repository)
 
     operator fun invoke(): Observable<List<CurrencyEntity>> =
         repository.getCurrency()
+
 }
