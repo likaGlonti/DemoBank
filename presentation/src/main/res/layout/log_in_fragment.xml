@@ -69,6 +69,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEt"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="match_parent"
             android:textSize="14sp" />
 

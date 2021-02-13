@@ -1,6 +1,5 @@
 package com.example.presentation.fragment
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.data.manager.SessionManager
@@ -8,11 +7,14 @@ import com.example.domain.models.Email
 import com.example.domain.models.Password
 import com.example.domain.usecase.LogInUseCase
 import com.example.presentation.model.LogInPresentation
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class LogInViewModel @ViewModelInject constructor(
+@HiltViewModel
+class LogInViewModel @Inject constructor(
     private val logInUseCase: LogInUseCase,
     private val sessionManager: SessionManager,
 ) :

@@ -6,7 +6,7 @@ import java.lang.Exception
 class Password(private val password: String) {
 
     private val isUpper = password[0].isUpperCase()
-    private val isLong = password.toCharArray().count() > 6
+    private val isLong = password.toCharArray().count() >= 6
 
     fun isValid(onError: (Exception) -> Unit): Boolean {
         if (!isUpper) {

@@ -40,7 +40,7 @@ class RegistrationFragment : Fragment(R.layout.registration_fragment) {
         binding.apply {
             birthDateEt.setOnClickListener {
                 val calendar = Calendar.getInstance()
-                val date = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                val date = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                     calendar.set(Calendar.YEAR, year)
                     calendar.set(Calendar.MONTH, month)
                     calendar.set(Calendar.DATE, dayOfMonth)

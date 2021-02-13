@@ -1,6 +1,5 @@
 package com.example.presentation.fragment
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.data.manager.SessionManager
@@ -9,12 +8,15 @@ import com.example.domain.models.Password
 import com.example.domain.models.PersonalId
 import com.example.domain.usecase.RegisterUseCase
 import com.example.presentation.model.RegisterPresentation
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class RegistrationViewModel @ViewModelInject constructor(
+@HiltViewModel
+class RegistrationViewModel @Inject constructor(
     private val registerUseCase: RegisterUseCase,
     private val sessionManager: SessionManager,
 ) : ViewModel() {
